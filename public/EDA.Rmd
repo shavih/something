@@ -1,5 +1,6 @@
 ---
 title: "EDA Project"
+date: "November 24, 2019"
 output:
   html_document: default
   pdf_document: default
@@ -13,10 +14,10 @@ devtools::install_github("hadley/emo")
 
 ### `r emo::ji("canada")` Introduction `r emo::ji("america")`
 
-In recent years, the YouTube Trending page has been one of the more controversial topics amongst users of the site. This is mostly because the manner in which videos appear on the Trending page is a mystery (in 2018, for example, the website Polygon wrote an [article](https://www.polygon.com/2018/2/21/17035758/how-does-youtube-trending-work-parkland) about the controversy surrounding offensive videos surfacing on this page).  
+In recent years, the YouTube Trending page has been one of the more controversial topics amongst users of the site. This is mostly because the manner in which videos appear on the Trending page is a mystery (in 2018, for example, the website Polygon wrote an [*article*](https://www.polygon.com/2018/2/21/17035758/how-does-youtube-trending-work-parkland) about the controversy surrounding offensive videos surfacing on this page).  
 I chose this particular dataset because I spend a lot of time on YouTube, and I was curious to see how Trending videos differ by country. I always assumed that it would be similar (at least between the United States and Canada, since the culture of these countries is essentially alike.) I also wanted to look at how various factors contributed to the success of a video (and its subsequent appearance on the Trending page.)
 
-The following project explores the videos that appear on the Trending page of YouTube in the United States, compared to the YouTube trending page of our northern neighbors (Canada). The dataset was acquired from [Kaggle]("https://www.kaggle.com/datasnaek/youtube-new/data#"), and contains variables that identify the name of the video (by title and unique ID), the channel which posted it, the date on which it was trending, the date and time it was published, a link to the thumbnail of the video, the tags, and the description of the video.   
+The following project explores the videos that appear on the Trending page of YouTube in the United States, compared to the YouTube trending page of our northern neighbors (Canada). The dataset was acquired from [*Kaggle*]("https://www.kaggle.com/datasnaek/youtube-new/data#"), and contains variables that identify the name of the video (by title and unique ID), the channel which posted it, the date on which it was trending, the date and time it was published, a link to the thumbnail of the video, the tags, and the description of the video.   
 In addition, it contains the amount of views the video recieved, as well as the amount of likes, dislikes, and comments. Furthermore, it specifies if the video was removed at any time, if ratings were disabled, and if comments were disabled.  
 Finally, there is also a category_ID, which is a number that corresponds to a category of YouTube video. This will be matched to the name of the category from a separate file that was acquired alongside the data.  
   
@@ -25,7 +26,7 @@ This data was originally collected using a script that "[scraped] the most relev
 
 ### `r emo::ji("television")`Loading Packages and Data`r emo::ji("pencil")`
 In this chunk, I read in the data and packages that are being used for the rest of the project. In the original dataset, categories were listed under "category ID," which was a number. However, I wanted the names of the categories that corresponded to the number, which were included in a separate JSON file.  
-I did not write the code that retrieved the category title from the category ID number. I used code by Eddie Cano from [here](https://www.kaggle.com/datasnaek/youtube-new/discussion/50240#331078). 
+I did not write the code that retrieved the category title from the category ID number. I used code by Eddie Cano from [*here*](https://www.kaggle.com/datasnaek/youtube-new/discussion/50240#331078). 
 
 ```{r}
 #LOAD PACKAGES

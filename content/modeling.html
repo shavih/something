@@ -108,7 +108,7 @@ for(i in 1:5000){
 
 #P-value
 mean(r_dist&gt;173.56)*2</code></pre>
-<pre><code>## [1] 4e-04</code></pre>
+<pre><code>## [1] 0</code></pre>
 <p>The randomization test produced a p-value of 0, which makes sense because the p-value that was produced by pairwise t-tests in the prior step was also very low. This p-value tells us that there is a significant difference in the antibiotic prescription rates between democratic-affiliated states and republican-affiliated states.</p>
 </div>
 <div id="visualizing-null-and-test-statistic" class="section level4">
@@ -238,7 +238,7 @@ summary(part3_2)</code></pre>
 
 sample_dist%&gt;%t%&gt;%as.data.frame%&gt;%summarize_all(sd)</code></pre>
 <pre><code>##   (Intercept) perperson_c presidentialD perperson_c:presidentialD
-## 1    32.08865    16.15914      41.65201                  16.88861</code></pre>
+## 1    32.10859    16.11275      42.34451                  16.90199</code></pre>
 <p>As we can see here, the standard errors when doing the bootstrapped sample were slightly lower than the original standard error and the robust standard errors.</p>
 </div>
 <div id="part-v-logistic-regression" class="section level2">
