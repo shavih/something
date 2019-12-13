@@ -29,7 +29,7 @@
       <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/"><i class="fa fa-star-o"></i></a>
+      <a class="navbar-brand" href="/"><i class="fa fa-home"></i></a>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -72,12 +72,15 @@
               
 
 
-<p>##Introduction
-This dataset is a fun amalgmation of a bunch of different state-level health data from 2017. We’re going to use this to look at differences between Democratic and Republican states in terms of their healthcare, and then go the other way and predict which states are Democrat or Republican affiliated based on their healthcare statistics.<br />
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This dataset is a fun amalgmation of a bunch of different state-level health data from 2017. We’re going to use this to look at differences between Democratic and Republican states in terms of their healthcare, and then go the other way and predict which states are Democrat or Republican affiliated based on their healthcare statistics.<br />
 Variables include:<br />
 State, affiliation during 2016 election (<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/PEJ5QU">source</a>), population (<a href="https://www.census.gov/data/tables/time-series/demo/popest/2010s-state-total.html">source</a>), antibiotic prescription rate per thousand (<a href="https://www.cdc.gov/antibiotic-use/community/programs-measurement/state-local-activities/outpatient-antibiotic-prescriptions-US-2017.html">source</a>), opioid prescription rate per thousand (<a href="https://www.cdc.gov/drugoverdose/maps/rxstate2017.html">source</a>), total payments from drug companies accepted by doctors per state (<a href="https://www.cms.gov/OpenPayments/Explore-the-Data/Dataset-Downloads">source</a>), drug deaths per 100,000 population (<a href="https://www.americashealthrankings.org/explore/annual/measure/Drugdeaths/state/ALL?edition-year=2017">source</a>), and public health funding per person (<a href="https://www.americashealthrankings.org/explore/annual/measure/PH_funding/state/ALL?edition-year=2017">source</a>).</p>
-<p>##PART I: MANOVA<br />
-First, we’re gonna do a MANOVA to see if numeric variables have a mean difference across categorical variables.</p>
+</div>
+<div id="part-i-manova" class="section level2">
+<h2>PART I: MANOVA</h2>
+<p>First, we’re gonna do a MANOVA to see if numeric variables have a mean difference across categorical variables.</p>
 <pre class="r"><code>datafinal&lt;-read.csv(&quot;/Users/shavihewage/datafinal&quot;)
 
 mandata&lt;-manova(cbind(APPT,OPPT,PPF,ddpht,total_payment)~presidential, data=datafinal)
@@ -138,17 +141,22 @@ summary(mandata)</code></pre>
 ## P value adjustment method: none</code></pre>
 <p>A MANOVA was run to determine the effect of state affiliation on five dependent variables. Of those five variables, two were significant. Pairwise t-tests were run on antibiotic prescription rate and opioid prescription rate, and there was a significant difference in the antibiotic and opioid prescription rates between democratic and republican affiliated states.<br />
 There were eight tests run, which means that the probability of a type I error is 0.4. Therefore, the <span class="math inline">\(\alpha\)</span> needs to be adjusted. this would be <span class="math inline">\(\alpha = 0.05/8 = 0.00625\)</span>. Even with the correction, however, the difference in prescription rates for both drug categories is still significant.</p>
-<p>####<em>Assumptions</em><br />
-Okay, take a deep breath. We’re going to talk about MANOVA assumptions. No, wait! Please don’t leave. Sit down. It’s going to be okay.<br />
+<div id="assumptions" class="section level4">
+<h4><em>Assumptions</em></h4>
+<p>Okay, take a deep breath. We’re going to talk about MANOVA assumptions. No, wait! Please don’t leave. Sit down. It’s going to be okay.<br />
 MANOVA assumes that the data is randomly sampled with independent observations. It also assumes mutlivariate normality of dependant variables.</p>
 <pre class="r"><code>ggplot(datafinal, aes(x = APPT, y = OPPT)) +
 geom_point(alpha = .5) + geom_density_2d(h=2) + coord_fixed() + facet_wrap(~presidential)</code></pre>
-<p><img src="/blog/modeling_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<p><img src="/modeling_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 Hmm! Fun! It doesn’t look multivariately normal. Looks like the MANOVA is impossible to please. Well, it’s time to move on.</p>
-<p>##PART II: Randomization Tests<br />
-Since the difference that appeared significant in the MANOVA part was opioid and antibiotic prescriptions by state, this randomization test will be conducted on the rates of antibiotic prescriptions per thousand.</p>
-<p>####<em>Null and Alternate Hypotheses</em><br />
-<span class="math inline">\(H_{0}=\)</span> The opioid prescription rate per thousand is the same for democratic versus republican states.<br />
+</div>
+</div>
+<div id="part-ii-randomization-tests" class="section level2">
+<h2>PART II: Randomization Tests</h2>
+<p>Since the difference that appeared significant in the MANOVA part was opioid and antibiotic prescriptions by state, this randomization test will be conducted on the rates of antibiotic prescriptions per thousand.</p>
+<div id="null-and-alternate-hypotheses" class="section level4">
+<h4><em>Null and Alternate Hypotheses</em></h4>
+<p><span class="math inline">\(H_{0}=\)</span> The opioid prescription rate per thousand is the same for democratic versus republican states.<br />
 <span class="math inline">\(H_{A}=\)</span> The opioid prescription rate per thousand is different for democratic versus republican states.</p>
 <pre class="r"><code>#Original mean between the two groups
 mean(datafinal[datafinal$presidential==&quot;R&quot;,]$APPT)-
@@ -163,16 +171,21 @@ for(i in 1:5000){
 
 #P-value
 mean(r_dist&gt;173.56)*2</code></pre>
-<pre><code>## [1] 8e-04</code></pre>
+<pre><code>## [1] 4e-04</code></pre>
 <p>The randomization test produced a p-value of 0, which makes sense because the p-value that was produced by pairwise t-tests in the prior step was also very low. This p-value tells us that there is a significant difference in the antibiotic prescription rates between democratic-affiliated states and republican-affiliated states.</p>
-<p>####<em>Visualizing null and test statistic</em></p>
+</div>
+<div id="visualizing-null-and-test-statistic" class="section level4">
+<h4><em>Visualizing null and test statistic</em></h4>
 <pre class="r"><code>{hist(r_dist, main=&quot;Randomized Distribution of Mean Differences&quot;, ylab=&quot;&quot;, 
       xlab=&quot;Difference Between Democrat and Republican States&quot;); 
   abline(v=173.56, col=&quot;red&quot;)}</code></pre>
-<p><img src="/blog/modeling_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/modeling_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>We can see in the distribution of the differences in mean that the original difference in mean lies far to the right, indicating that there is a low likelihood of there being no difference in mean between the two groups.</p>
-<p>##PART III: Linear Regression Model<br />
-Now it’s time to predict a response variable, antibiotic prescriptions per 1000, from two other variables, political affiliation of the state and the total amount of payment accepted by state, per person. This is going to be extremely fun. The payment per person variable was made using mutate, by dividing the total payment per state by the population of the state. All the numeric variables were mean centered.</p>
+</div>
+</div>
+<div id="part-iii-linear-regression-model" class="section level2">
+<h2>PART III: Linear Regression Model</h2>
+<p>Now it’s time to predict a response variable, antibiotic prescriptions per 1000, from two other variables, political affiliation of the state and the total amount of payment accepted by state, per person. This is going to be extremely fun. The payment per person variable was made using mutate, by dividing the total payment per state by the population of the state. All the numeric variables were mean centered.</p>
 <pre class="r"><code>datafinal &lt;- datafinal %&gt;% mutate(perperson=total_payment/population)
 
 datafinal$perperson_c &lt;- datafinal$perperson-mean(datafinal$perperson)
@@ -207,9 +220,10 @@ ggplot(datafinal, aes(x=perperson, y=APPT))+geom_point(aes(color=presidential))+
   geom_smooth(method=&quot;lm&quot;, se=F, fullrange=T, aes(color=presidential))+
   ggtitle(&quot;Antibiotic Prescriptions Per Thousand vs Payments Accepted Per Person&quot;)+ 
 xlab(&quot;Payments Per Person&quot;)+ylab(&quot;Antibiotic Prescription Per 1000 Population&quot;)+theme_classic()</code></pre>
-<p><img src="/blog/modeling_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>####<em>Assumptions</em><br />
-The assumptions for this are a linear relationship between the predictor and response variable, independent observations, random sampling, normally distributed residuals, and equal variances.</p>
+<p><img src="/modeling_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div id="assumptions-1" class="section level4">
+<h4><em>Assumptions</em></h4>
+<p>The assumptions for this are a linear relationship between the predictor and response variable, independent observations, random sampling, normally distributed residuals, and equal variances.</p>
 <pre class="r"><code>resids&lt;-part3$residuals
 
 #Tests for normality
@@ -230,8 +244,10 @@ bptest(part3)</code></pre>
 The null hypothesis for the Shapiro-Wilk test is that the distribution is normal. Because the p-value is above 0.05, we fail to reject the null hypothesis that the distribution is normal.<br />
 The null hypothesis for the Breusch-Pagan test is that the data is homoskedastic. The p-value for this test was 0.067, which is higher than the <span class="math inline">\(\alpha\)</span> of 0.05, so we fail to reject the null hypothesis that the data is homoskedastic.<br />
 Therefore, the assumptions are met for this test.</p>
-<p>####<em>Regression with Robust Standard Errors</em><br />
-This is the same model run with heteroskedasticity robust standard errors.</p>
+</div>
+<div id="regression-with-robust-standard-errors" class="section level4">
+<h4><em>Regression with Robust Standard Errors</em></h4>
+<p>This is the same model run with heteroskedasticity robust standard errors.</p>
 <pre class="r"><code>coeftest(part3, vcov = vcovHC(part3))</code></pre>
 <pre><code>## 
 ## t test of coefficients:
@@ -247,7 +263,9 @@ This is the same model run with heteroskedasticity robust standard errors.</p>
 <pre><code>## [1] 0.2413283</code></pre>
 <p>When computing the same regression with robust standard errors, the standard errors (and subsequently the p-values) of the model were slightly lower than without the utilization robust standard errors. The same variable that was significant in the original model, political alignment during the 2016 election, was significant in the robust model.<br />
 The proportion of variance explained by the model is 0.241.</p>
-<p>####<em>Same Model, No Interaction</em></p>
+</div>
+<div id="same-model-no-interaction" class="section level4">
+<h4><em>Same Model, No Interaction</em></h4>
 <pre class="r"><code>part3_2 &lt;- lm(APPT_c ~ perperson_c+presidential, data=datafinal)
 summary(part3_2)</code></pre>
 <pre><code>## 
@@ -270,8 +288,11 @@ summary(part3_2)</code></pre>
 ## Multiple R-squared:  0.238,  Adjusted R-squared:  0.2062 
 ## F-statistic: 7.496 on 2 and 48 DF,  p-value: 0.001469</code></pre>
 <p>This model includes only main effects and no interaction. For this, the numbers change slightly, but the p-values are still relatively the same. For republican states, for every 1 increase in antibiotic prescriptions per thousandpeople, the amount of money obtained per person by doctors in that state increases by $4.552 from the mean. Furthermore, controlling for payments obtained per person, the number of antibiotic prescriptions per thousand population decreases by 189.71 relative to the mean when the state is Democratic.</p>
-<p>##PART IV: Bootstrapped Standard Errors<br />
-Here we are computing the bootstrapped standard errors for the same model as part III.</p>
+</div>
+</div>
+<div id="part-iv-bootstrapped-standard-errors" class="section level2">
+<h2>PART IV: Bootstrapped Standard Errors</h2>
+<p>Here we are computing the bootstrapped standard errors for the same model as part III.</p>
 <pre class="r"><code>sample_dist&lt;-replicate(5000, {
   bootstrapped&lt;-datafinal[sample(nrow(datafinal), replace=TRUE),]
   part4&lt;-lm(APPT_c ~ perperson_c*presidential, data=bootstrapped)
@@ -280,10 +301,12 @@ Here we are computing the bootstrapped standard errors for the same model as par
 
 sample_dist%&gt;%t%&gt;%as.data.frame%&gt;%summarize_all(sd)</code></pre>
 <pre><code>##   (Intercept) perperson_c presidentialD perperson_c:presidentialD
-## 1    31.73297    16.32973      41.69672                  17.00421</code></pre>
+## 1    32.08865    16.15914      41.65201                  16.88861</code></pre>
 <p>As we can see here, the standard errors when doing the bootstrapped sample were slightly lower than the original standard error and the robust standard errors.</p>
-<p>##PART V: Logistic Regression<br />
-Now we’re going to predict a binary (whether or not a Democratic state)</p>
+</div>
+<div id="part-v-logistic-regression" class="section level2">
+<h2>PART V: Logistic Regression</h2>
+<p>Now we’re going to predict a binary (whether or not a Democratic state)</p>
 <pre class="r"><code>part5&lt;-glm(presidential~APPT+perperson+OPPT+ddpht, data=datafinal, family=binomial(link=&quot;logit&quot;))
 exp(coeftest(part5))</code></pre>
 <pre><code>## 
@@ -320,23 +343,28 @@ table(prediction=as.numeric(datafinal$prob&gt;.5),truth=datafinal$presidential)%
 17/22</code></pre>
 <pre><code>## [1] 0.7727273</code></pre>
 <p>The accuracy of the model is 0.823. The sensitivty, or true positive rate (the number of Democrat states that are actually Democrat states) is 0.809. The specificity, or true negative rate (the number of Republican states that are actually republican states) is 0.833. The precision is 0.772.</p>
-<p>####<em>Density Plot</em></p>
+<div id="density-plot" class="section level4">
+<h4><em>Density Plot</em></h4>
 <pre class="r"><code>datafinal$logpred&lt;-predict(part5, type=&quot;link&quot;)
 datafinal%&gt;%ggplot()+geom_density(aes(logpred,color=presidential,fill=presidential), alpha=.4)+
   theme(legend.position=c(.85,.85))+geom_vline(xintercept=0)+ggtitle(&quot;Density Plot of predicted Republican vs. Democrat&quot;)+xlab(&quot;predictor (logit)&quot;)</code></pre>
-<p><img src="/blog/modeling_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<p>####<em>ROC Plot</em></p>
+<p><img src="/modeling_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+<div id="roc-plot" class="section level4">
+<h4><em>ROC Plot</em></h4>
 <pre class="r"><code>datafinal &lt;- datafinal %&gt;% mutate(y=as.numeric(presidential)-1)
 ROC&lt;-ggplot(data=datafinal)+geom_roc(aes(d=y,m=prob),n.cuts=0)
 ROC</code></pre>
-<p><img src="/blog/modeling_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="/modeling_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>Very interesting! Looks like our model is doing okay! What’s the AUC, you ask? This is being calculated with the <code>plotROC</code> package.</p>
 <pre class="r"><code>calc_auc(ROC)</code></pre>
 <pre><code>##   PANEL group       AUC
 ## 1     1    -1 0.9063492</code></pre>
 <p>It’s 0.906! Not bad! The AUC is the probability that a random state selected that is Democratic has a higher prediction of being Democratic than a random state selected that is Republican. This means our model is pretty good at predicting overall.</p>
-<p>####<em>Cross Validation</em><br />
-But let’s not get ahead of ourselves–it’s time to see how our model performs out of sample. First, here’s that diags function from class that I’m going to use later to get the accuracy, recall, and sensitivity.</p>
+</div>
+<div id="cross-validation" class="section level4">
+<h4><em>Cross Validation</em></h4>
+<p>But let’s not get ahead of ourselves–it’s time to see how our model performs out of sample. First, here’s that diags function from class that I’m going to use later to get the accuracy, recall, and sensitivity.</p>
 <pre class="r"><code>## GIVE IT PREDICTED PROBS AND TRUTH LABELS, RETURNS VARIOUS DIAGNOSTICS
 class_diag&lt;-function(probs,truth){
  tab&lt;-table(factor(probs&gt;.5,levels=c(&quot;FALSE&quot;,&quot;TRUE&quot;)),truth)
@@ -376,8 +404,11 @@ apply(diags,2,mean)</code></pre>
 <pre><code>##       acc      sens      spec       ppv       auc 
 ## 0.8000000 0.8166667 0.7583333 0.7916667 0.8500000</code></pre>
 <p>The average out-of-sample accuracy is 0.80, the sensitivity is 0.816, and the recall is 0.833. Compared to the model on its own, it is performing slightly worse, the AUC has reduced to 0.85 compared to the 0.906 from before.</p>
-<p>##PART VI: LASSO Regression
-choose a variable and then run regression lasso with all other variables as predictors</p>
+</div>
+</div>
+<div id="part-vi-lasso-regression" class="section level2">
+<h2>PART VI: LASSO Regression</h2>
+<p>choose a variable and then run regression lasso with all other variables as predictors</p>
 <pre class="r"><code>mat&lt;-model.matrix(part5)
 y&lt;-as.matrix(datafinal$y)
 x&lt;-as.data.frame(mat) %&gt;% dplyr::select(-1) %&gt;% as.matrix
@@ -393,7 +424,8 @@ coef(lasso)</code></pre>
 ## OPPT        -0.0006943162
 ## ddpht        .</code></pre>
 <p>Wow! Crazy, looks like the best predictors of whether a state is Democratic or Republican are opioid prescriptions per thousand (OPPT) and antibiotic prescriptions per thousand (APPT) population. Makes sense, because these are the variables that have been significant the whole time.</p>
-<p>####<em>Model with LASSO Variables</em></p>
+<div id="model-with-lasso-variables" class="section level4">
+<h4><em>Model with LASSO Variables</em></h4>
 <pre class="r"><code>part6&lt;-glm(presidential~OPPT+APPT, data=datafinal, family=binomial(link=&quot;logit&quot;))
 coeftest(part6)</code></pre>
 <pre><code>## 
@@ -426,6 +458,8 @@ apply(diags,2,mean)</code></pre>
 <pre><code>##       acc      sens      spec       ppv       auc 
 ## 0.8033333 0.8416667 0.7750000 0.7933333 0.8416667</code></pre>
 <p>The out-of-sample accuracy is higher than it was for the LASSO regression model than the original, but not by much! The accuracy for the LASSO model is 0.820, while the original had an accuracy of 0.800.</p>
+</div>
+</div>
 
               <hr>
               <div class="related-posts">
@@ -439,5 +473,23 @@ apply(diags,2,mean)</code></pre>
       </div>
       
     </div>
+    <footer>
+  <div id="footer">
+    <div class="container">
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/js/docs.min.js"></script>
+<script src="/js/main.js"></script>
+
+<script src="/js/ie10-viewport-bug-workaround.js"></script>
+
+
   </body>
 </html>

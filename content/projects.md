@@ -7,3 +7,11 @@ tags:
 - projects
 title: Projects
 ---
+
+## Projects 
+
+Here are some projects I have been working on:
+
+- [Project 1](/EDA/)
+
+- [Project 2](/modeling/)

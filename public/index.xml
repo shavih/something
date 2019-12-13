@@ -17,7 +17,10 @@
       <pubDate>Sun, 02 Oct 2016 22:55:05 -0400</pubDate>
       
       <guid>/projects/</guid>
-      <description></description>
+      <description>Projects Here are some projects I have been working on:
+  Project 1
+  Project 2
+  </description>
     </item>
     
     <item>
@@ -32,12 +35,22 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     </item>
     
     <item>
+      <title>EDA Project</title>
+      <link>/eda/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/eda/</guid>
+      <description>🇨🇦 Introduction 🇺🇸 In recent years, the YouTube Trending page has been one of the more controversial topics amongst users of the site. This is mostly because the manner in which videos appear on the Trending page is a mystery (in 2018, for example, the website Polygon wrote an article about the controversy surrounding offensive videos surfacing on this page).
+I chose this particular dataset because I spend a lot of time on YouTube, and I was curious to see how Trending videos differ by country.</description>
+    </item>
+    
+    <item>
       <title>Project 2: Modeling</title>
       <link>/modeling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/modeling/</guid>
-      <description>##Introduction This dataset is a fun amalgmation of a bunch of different state-level health data from 2017. We’re going to use this to look at differences between Democratic and Republican states in terms of their healthcare, and then go the other way and predict which states are Democrat or Republican affiliated based on their healthcare statistics.
+      <description>Introduction This dataset is a fun amalgmation of a bunch of different state-level health data from 2017. We’re going to use this to look at differences between Democratic and Republican states in terms of their healthcare, and then go the other way and predict which states are Democrat or Republican affiliated based on their healthcare statistics.
 Variables include:
 State, affiliation during 2016 election (source), population (source), antibiotic prescription rate per thousand (source), opioid prescription rate per thousand (source), total payments from drug companies accepted by doctors per state (source), drug deaths per 100,000 population (source), and public health funding per person (source).</description>
     </item>
