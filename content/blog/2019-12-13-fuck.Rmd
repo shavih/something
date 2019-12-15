@@ -1,5 +1,5 @@
 ---
-title: My cool blog post
+title: Using R and Python Together
 author: Shavi Hewage
 date: '2019-12-13'
 slug: fuck
@@ -8,4 +8,21 @@ tags: []
 description: ''
 ---
 
-welcome 2 hell
+Have you ever had the urge to do things in two languages at the same time? It's literally code-switching. When you're at home and you're talking to your mom or maybe your grandma, and you unwittingly switch between your home language and English?
+
+**Your mom**: තේ බොමු ද?  
+**You**: Sure! Do we have any කිඹුල් බනිස්?  
+  
+(maybe this is not a *universal* experience, but it is a common experience for a good chunk of people. I learned about code-switching in an intro to anthropology class.)
+  
+Anyway, kind of like that-- you're at home, you're doing something in R, and you think to yourself, "hey. What if instead of doing everything in one perfectly good language, I throw in some garbage from another? I love making my own life hard! Maybe I'll have to install a package!"  
+  
+Lucky for you, we can use R and Python together in R studio. What a world, right?  
+  
+Okay, so imagine you're... doing some kind of homework. Oh, look! It's everyone's favorite dataset: the cars dataset! For some reason, you've never seen this dataset before, so you look at a summary of it.
+
+```{r}
+summary(cars)
+```
+  
+You see this and you're like, "well. I do not believe this! There's no way that the mean speed of these cars is 15.4 miles per hour!" In this hypothetical scenario, you're hopelessly dumb so you think that using a whole different language will prove to you 

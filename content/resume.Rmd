@@ -1,6 +1,6 @@
 ---
-title: "Lijia Yu's resume"
-author: Lijia Yu
+title: "Resume"
+author: Shavi Hewage
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
@@ -8,11 +8,8 @@ output:
     self_contained: true
 ---
 
-Aside
-================================================================================
 
-
-![Lijia Yu](https://avatars1.githubusercontent.com/u/895125?s=400&v=4){width=80%}
+![???](https://avatars1.githubusercontent.com/u/895125?s=400&v=4){width=30%}
 
 
 Contact Info {#contact}
@@ -32,16 +29,6 @@ Skills {#skills}
 - Full experience with next generation sequencing data analysis.
 
 - Highly skilled in R, Bash, Perl, Python, LaTeX
-
-
-Disclaimer {#disclaimer}
---------------------------------------------------------------------------------
-
-This resume was made with the R package [**pagedown**](https://github.com/rstudio/pagedown).
-
-Last updated on `r Sys.Date()`.
-
-
 
 Main
 ================================================================================
@@ -183,13 +170,3 @@ Qingdao, China
 2014
 
 **Yu L**, Chen B, Zhang Z.
-
-### ESCRT-0 complex modulates Rbf mutant cell survival by regulating Rhomboid endosomal trafficking and EGFR signaling.
-
-J Cell Sci. 2016 May 15;129(10):2075-84.
-
-N/A
-
-2016 
-
-Sheng Z, **Yu L**, Zhang T, Pei X, Li X, Zhang Z and Du W. 

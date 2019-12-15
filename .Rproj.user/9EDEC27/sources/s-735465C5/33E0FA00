@@ -5,20 +5,20 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "250504538",
     "id" : "33E0FA00",
-    "lastKnownWriteTime" : 1575839108,
-    "last_content_update" : 1575839108193,
+    "lastKnownWriteTime" : 1576439159,
+    "last_content_update" : 1576439159039,
     "path" : "~/w3/config.toml",
     "project_path" : "config.toml",
     "properties" : {
-        "cursorPosition" : "19,17",
-        "scrollLine" : "0"
+        "cursorPosition" : "42,16",
+        "scrollLine" : "17"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 2,
+    "relative_order" : 1,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "toml"
