@@ -56,7 +56,7 @@
       <div class="container">
         <div class="blog-post">
           <h3>
-            <strong><a href="/blog/fuck/">Using R and Python Together</a></strong>
+            <strong><a href="/blog/heck/">Using R and Python Together</a></strong>
           </h3>
         </div>
         <div class="blog-title">
@@ -76,16 +76,14 @@
 <p>(maybe this is not a <em>universal</em> experience, but it is a common experience for a good chunk of people. I learned about code-switching in an intro to anthropology class.)</p>
 <p>Anyway, kind of like that– you’re at home, you’re doing something in R, and you think to yourself, “hey. What if instead of doing everything in one perfectly good language, I throw in some garbage from another? I love making my own life hard! Maybe I’ll have to install a package!”</p>
 <p>Lucky for you, we can use R and Python together in R studio. What a world, right?</p>
-<p>Okay, so imagine you’re… doing some kind of homework. Oh, look! It’s everyone’s favorite dataset: the faithful dataset! For some reason, you’ve never seen this dataset before, so you look at a summary of it.</p>
-<pre class="r"><code>summary(faithful)</code></pre>
-<pre><code>##    eruptions        waiting    
-##  Min.   :1.600   Min.   :43.0  
-##  1st Qu.:2.163   1st Qu.:58.0  
-##  Median :4.000   Median :76.0  
-##  Mean   :3.488   Mean   :70.9  
-##  3rd Qu.:4.454   3rd Qu.:82.0  
-##  Max.   :5.100   Max.   :96.0</code></pre>
-<p>You see this and you’re like, “well. I do not believe this! There’s no way that the mean speed of these cars is 15.4 miles per hour!” In this hypothetical scenario, you’re hopelessly dumb so you think that using a whole different language will prove to you what the <em>real</em> mean is.</p>
+<p>Okay, so imagine you’re… doing some kind of homework. And the only problem on this homework is to get the reticulate package to work. So you load the reticulate package. And then you make a funny thing because you’re extremely cool and hilarious that way.</p>
+<pre class="r"><code>library(reticulate)
+something&lt;-&quot;This Is&quot;</code></pre>
+<p>You also have to put some python thing in to prove that the reticulate package works. Here you are with the comedy again. But look at that, you print it out and it’s a fun little sentence!</p>
+<pre class="python"><code>dumb=&quot;Really Cool&quot;
+print(r.something,dumb)</code></pre>
+<pre><code>## (&#39;This Is&#39;, &#39;Really Cool&#39;)</code></pre>
+<p>You kind of wish you could do something cooler but you couldn’t figure out how to import python packages. You’re hopeless.</p>
 
               <hr>
               <div class="related-posts">

@@ -2,7 +2,7 @@
 title: Using R and Python Together
 author: Shavi Hewage
 date: '2019-12-13'
-slug: fuck
+slug: heck
 categories: []
 tags: []
 description: ''
@@ -16,13 +16,11 @@ description: ''
 <p>(maybe this is not a <em>universal</em> experience, but it is a common experience for a good chunk of people. I learned about code-switching in an intro to anthropology class.)</p>
 <p>Anyway, kind of like that– you’re at home, you’re doing something in R, and you think to yourself, “hey. What if instead of doing everything in one perfectly good language, I throw in some garbage from another? I love making my own life hard! Maybe I’ll have to install a package!”</p>
 <p>Lucky for you, we can use R and Python together in R studio. What a world, right?</p>
-<p>Okay, so imagine you’re… doing some kind of homework. Oh, look! It’s everyone’s favorite dataset: the cars dataset! For some reason, you’ve never seen this dataset before, so you look at a summary of it.</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
-<p>You see this and you’re like, “well. I do not believe this! There’s no way that the mean speed of these cars is 15.4 miles per hour!” In this hypothetical scenario, you’re hopelessly dumb so you think that using a whole different language will prove to you</p>
+<p>Okay, so imagine you’re… doing some kind of homework. And the only problem on this homework is to get the reticulate package to work. So you load the reticulate package. And then you make a funny thing because you’re extremely cool and hilarious that way.</p>
+<pre class="r"><code>library(reticulate)
+something&lt;-&quot;This Is&quot;</code></pre>
+<p>You also have to put some python thing in to prove that the reticulate package works. Here you are with the comedy again. But look at that, you print it out and it’s a fun little sentence!</p>
+<pre class="python"><code>dumb=&quot;Really Cool&quot;
+print(r.something,dumb)</code></pre>
+<pre><code>## (&#39;This Is&#39;, &#39;Really Cool&#39;)</code></pre>
+<p>You kind of wish you could do something cooler but you couldn’t figure out how to import python packages. You’re hopeless.</p>

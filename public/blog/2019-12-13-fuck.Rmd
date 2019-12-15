@@ -2,7 +2,7 @@
 title: Using R and Python Together
 author: Shavi Hewage
 date: '2019-12-13'
-slug: fuck
+slug: heck
 categories: []
 tags: []
 description: ''
@@ -19,10 +19,17 @@ Anyway, kind of like that-- you're at home, you're doing something in R, and you
   
 Lucky for you, we can use R and Python together in R studio. What a world, right?  
   
-Okay, so imagine you're... doing some kind of homework. Oh, look! It's everyone's favorite dataset: the cars dataset! For some reason, you've never seen this dataset before, so you look at a summary of it.
+Okay, so imagine you're... doing some kind of homework. And the only problem on this homework is to get the reticulate package to work. So you load the reticulate package. And then you make a funny thing because you're extremely cool and hilarious that way.  
 
 ```{r}
-summary(cars)
+library(reticulate)
+something<-"This Is"
 ```
   
-You see this and you're like, "well. I do not believe this! There's no way that the mean speed of these cars is 15.4 miles per hour!" In this hypothetical scenario, you're hopelessly dumb so you think that using a whole different language will prove to you 
+You also have to put some python thing in to prove that the reticulate package works. Here you are with the comedy again. But look at that, you print it out and it's a fun little sentence!  
+
+```{python}
+dumb="Really Cool"
+print(r.something,dumb)
+```
+You kind of wish you could do something cooler but you couldn't figure out how to import python packages. You're hopeless.
