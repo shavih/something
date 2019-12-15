@@ -12,6 +12,6 @@ title: Projects
 
 Here are some projects I have been working on:
 
-- [Project 1](/EDA/)
+- [Exploratory Data Analysis](/EDA/)
 
-- [Project 2](/modeling/)
+- [Modeling](/modeling/)
