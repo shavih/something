@@ -2,12 +2,13 @@
 title: Using R and Python Together
 author: Shavi Hewage
 date: '2019-12-13'
-slug: heck
+slug: R and Python
 categories: []
 tags: []
 description: ''
 ---
 
+##### **Why Would Anyone Need To Do This?**  
 Have you ever had the urge to do things in two languages at the same time? It's literally code-switching. When you're at home and you're talking to your mom or maybe your grandma, and you unwittingly switch between your home language and English?
 
 **Your mom**: තේ බොමු ද?  
@@ -18,6 +19,9 @@ Have you ever had the urge to do things in two languages at the same time? It's 
 Anyway, kind of like that-- you're at home, you're doing something in R, and you think to yourself, "hey. What if instead of doing everything in one perfectly good language, I throw in some garbage from another? I love making my own life hard! Maybe I'll have to install a package!"  
   
 Lucky for you, we can use R and Python together in R studio. What a world, right?  
+  
+  
+##### **Reticulate Works, I Promise**    
   
 Okay, so imagine you're... doing some kind of homework. And the only problem on this homework is to get the reticulate package to work. So you load the reticulate package. And then you make a funny thing because you're extremely cool and hilarious that way.  
 
