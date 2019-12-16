@@ -12,19 +12,19 @@ Shavi Hewage {#contact}
 --------------------------------------------------------------------------------
 
 - <i class="fa fa-envelope"></i> shavihewage@gmail.com
-- <i class="fa fa-github"></i> [github.com/yulijia](https://github.com/yulijia)
-- <i class="fa fa-phone"></i> +1 000-000-0000
+- <i class="fa fa-github"></i> [github.com/shavih](https://github.com/yulijia)
+- <i class="fa fa-phone"></i> +1 214-228-6517
 - For more information, please contact me via email.
 
 
 Skills {#skills}
 --------------------------------------------------------------------------------
 
-- Experienced in statistical analysis, statistical learning models, and optimization methods.
+- Experienced in doing the same thing every day without question.
 
-- Full experience with next generation sequencing data analysis.
+- Full experience with going to lab every day.
 
-- Highly skilled in R, Bash, Perl, Python, LaTeX
+- Highly skilled in being really cool.
 
 
 Education {data-icon=graduation-cap data-concise=true}
@@ -46,48 +46,16 @@ Department of Pharmacy and Toxicology, University of Texas at Austin
 Austin, Texas  
 2017 - 2020 
  
- 
 
-- Performed computational biology research towards understanding regulation of alternative splicing in human and mouse transcriptome.
-- Found EGFR pathway related mutations, aimed to understand the impacts of cancer mutations on EGFR signaling pathway.
-
-
-Professional Experience
---------------------------------------------------------------------------------
-
-### Data Scientist, intern
-
-SupStat Inc.
-
-Beijing, China
-
-2014
-
-::: concise
-- Taught R language to beginners. 
-- Wrote Shiny app demos.
-- Converted statistical tutorials from SPSS to R language.
-:::
-
-
-Teaching Experience 
---------------------------------------------------------------------------------
-
-### Introduction to R Language for Beginners.
-
-Instructor of R and Data Mining Training Courses at SupStat Inc.
-
-Beijing, China
-
-2014
-
-
-
+- Performed computational biology research towards understanding role of macrophages in spermatogenesis in rat testes.
+- Ran experiments using western blot, gel electrophoresis, genotyping, qPCR, and immunofluorescence staining.
+- Trained other undergraduate research assistants to conduct experiments.
+  
 Publications
 --------------------------------------------------------------------------------
 
 #### Peritubular macrophages and spermatogonia are sequentially increased in the testis of rats after mono-(2-ethylhexyl) phthalate exposure  
-Ross Gillette,  Richa Tiwary, Jorine JLP Voss, **Shavini N Hewage**, John H Richburg  
+Ross Gillette,  Richa Tiwary, Jorine J Voss, **Shavini N Hewage**, John H Richburg  
   
 
 _Phthalate-induced testicular injury results in an increase of specialized peritubular macrophages that may assist in the recovery of spermatogenesis._ [(**link**)](https://www.biorxiv.org/content/10.1101/767707v1)
@@ -95,4 +63,44 @@ _Phthalate-induced testicular injury results in an increase of specialized perit
 Austin, Texas  
 2019
 
+Professional Experience
+--------------------------------------------------------------------------------
 
+### Peer Coordinator, PLUS
+Sanger Learning Center  
+Austin, Texas  
+2018-2020  
+  
+::: concise
+- Planned and organized study groups for cell biology classes.
+- Hired facilitators for to lead study groups.
+- Led weekly planning meetings with professor and facilitators.
+:::
+
+
+Volunteer Work 
+--------------------------------------------------------------------------------
+
+### St. David's Medical Center
+
+ICU Unit Aide & Cardiology Day Recovery Aide  
+Austin, Texas  
+2019  
+
+### Street Cred  
+  
+Providing low-income families with free tax preparation at the People's Community Clinic.  
+Austin, Texas  
+2019  
+
+### Medical City Plano  
+  
+Orthopedics/Trauma Unit Aide  
+Plano, Texas  
+2018
+
+### Condom Distribution Center  
+  
+Packaging condoms and safe sex material to be distributed to colleges.  
+Austin, Texas  
+2018  
